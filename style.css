@@ -1,0 +1,62 @@
+body {
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.w-100 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+}
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 12px;
+    gap: 8px;
+    height: 36px;
+    width: 120px;
+    border: none;
+    background: #5e41de33;
+    border-radius: 20px;
+    cursor: pointer;
+}
+button.disabled {
+    background-color: #808080;
+    cursor: not-allowed;
+}
+#heightInput {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    padding: 0.4vw;
+    max-width: 190px;
+    transition: .4s;
+  }
+
+#heightValue {
+    position: absolute;
+    top: 40.6%;
+    left: 67%;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+  #heightInput :hover {
+    box-shadow: 0 0 0 .15vw rgba(135, 207, 235, 0.186);
+  }
+  
+  #heightInput :focus {
+    box-shadow: 0 0 0 .15vw skyblue;
+  }
+  #canvaContainer {
+    width: 95%;
+    height: 95%;
+    border-radius: 9px;
+    border: 1px solid;
+    overflow: hidden;
+  }
