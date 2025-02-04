@@ -119,23 +119,30 @@ function setupDrawing(canvas, ctx, texture) {
     function createHeightInput() {
         const heightInput = document.createElement('input');
         heightInput.id = 'heightInput';
-        heightInput.type = 'range'; // Changed to range input
+        heightInput.type = 'range';
         heightInput.min = '0';
         heightInput.max = '10';
         heightInput.step = '0.1';
-        heightInput.value = '0'; // Default value
+        heightInput.value = '0';
     
-        heightInput.style.position = 'absolute';
-        heightInput.style.top = '40%';
-        heightInput.style.left = '60%';
+        
+    
+        const valueDisplay = document.createElement('span');
+        valueDisplay.id = 'heightValue';
+        valueDisplay.textContent = heightInput.value;
+        
+        
     
         document.body.appendChild(heightInput);
+        document.body.appendChild(valueDisplay);
     
         heightInput.addEventListener('input', (e) => {
             const height = parseFloat(e.target.value);
+            valueDisplay.textContent = height; // Update displayed value
             createBuilding(height);
         });
     }
+    
 
     function createBuilding(height) {
         if (buildingMesh) {
@@ -145,8 +152,8 @@ function setupDrawing(canvas, ctx, texture) {
         // Normalize the 2D shape points
         const normalizedPoints = points.map(point => {
             return new THREE.Vector2(
-                (point[0] / canvas.width) * 4 - 2,
-                -(point[1] / canvas.height) * 4 + 2
+                (point[0] / canvas.width) * 4,
+                -(point[1] / canvas.height) * 4
             );
         });
     
